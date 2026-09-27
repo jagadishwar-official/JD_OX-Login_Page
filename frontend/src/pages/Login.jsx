@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { Mail, Lock, Eye, Zap, BookOpen, Users, ArrowRight, Pointer } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 import backgroundImage from "../assets/images/background-image.png"
 import googleIcon from "../assets/images/google.png"
@@ -15,6 +16,7 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false)
     const [message, setMessage] = useState("")
     const [messageType, setMessageType] = useState("")
+    const navigate = useNavigate()
 
     function handleLogin() {
 
@@ -44,7 +46,7 @@ function Login() {
                 if (data.message === "Login successful") {
 
                     setMessageType("success")
-                    window.location.href = "https://www.udemy.com/"
+                    navigate("/dashboard")
 
                 } else {
 

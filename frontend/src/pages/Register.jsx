@@ -33,16 +33,17 @@ function Register() {
 
         }
 
-        if (password !== confirmPassword) {
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters")
+            setSuccess("")
+            return
+        }
 
+        if (password !== confirmPassword) {
             setError("Passwords do not match")
             setSuccess("")
             return
-
         }
-
-        setError("")
-        setSuccess("")
 
         fetch(`${API_URL}/register`, {
             method: "POST",
@@ -55,19 +56,19 @@ function Register() {
                 password: password
             })
         })
-        .then((response) => response.json())
-        .then((data) => {
+            .then((response) => response.json())
+            .then((data) => {
 
-            setSuccess(data.message)
-            setError("")
+                setSuccess(data.message)
+                setError("")
 
-        })
-        .catch((error) => {
+            })
+            .catch((error) => {
 
-            setError("Something went wrong")
-            setSuccess("")
+                setError("Something went wrong")
+                setSuccess("")
 
-        })
+            })
 
     }
 
