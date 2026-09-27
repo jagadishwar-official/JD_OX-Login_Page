@@ -5,6 +5,7 @@ import { Mail, Lock, Eye, Zap, BookOpen, Users, ArrowRight, Pointer } from "luci
 import backgroundImage from "../assets/images/background-image.png"
 import googleIcon from "../assets/images/google.png"
 import githubIcon from "../assets/images/github.png"
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 function Login() {
@@ -25,7 +26,7 @@ function Login() {
 
         }
 
-        fetch("http://localhost:3000/login", {
+        fetch(`${API_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

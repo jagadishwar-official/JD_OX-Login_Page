@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { User, Mail, Lock, Eye, Zap, BookOpen, Users, ArrowRight } from "lucide-react"
 import backgroundImage from "../assets/images/background-image.png"
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Register() {
 
@@ -43,7 +44,7 @@ function Register() {
         setError("")
         setSuccess("")
 
-        fetch("http://localhost:3000/register", {
+        fetch(`${API_URL}/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
