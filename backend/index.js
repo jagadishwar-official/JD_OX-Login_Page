@@ -8,6 +8,10 @@ app.use(express.json())
 app.use(cors())
 const users = []
 
+const user = users.find((user) => {
+    return user.email === email && user.password === password
+})
+
 app.post("/register", (req, res) => {
 
     const { name, email, password } = req.body
