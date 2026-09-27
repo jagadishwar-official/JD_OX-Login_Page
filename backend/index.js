@@ -6,14 +6,17 @@ const cors = require("cors")
 
 app.use(express.json())
 app.use(cors())
+const users = []
 
 app.post("/register", (req, res) => {
 
     const { name, email, password } = req.body
 
-    console.log("Name:", name)
-    console.log("Email:", email)
-    console.log("Password:", password)
+    users.push({
+        name: name,
+        email: email,
+        password: password
+    })
 
     res.json({
         message: "Account created successfully"
@@ -25,7 +28,11 @@ app.post("/login", (req, res) => {
 
     const { email, password } = req.body
 
-    if (email === "john@gmail.com" && password === "1234") {
+    const user = users.find((user) => {
+        return user.email === email && user.password === password
+    })
+
+    if (user) {
 
         res.json({
             message: "Login successful"
@@ -34,7 +41,7 @@ app.post("/login", (req, res) => {
     } else {
 
         res.status(401).json({
-            message : "Invalid email or password"
+            message: "Invalid email or password"
         })
 
     }
