@@ -2,7 +2,7 @@
 
 A responsive developer-themed Login and Registration application built using React, Vite, Tailwind CSS, Node.js, and Express.js.
 
-This project allows users to create an account and log in using their registered email and password. The frontend communicates with the backend through REST API endpoints.
+This project allows users to create an account and log in using their registered email and password. The frontend communicates with the backend through API endpoints.
 
 ## Live Demo
 
@@ -39,7 +39,7 @@ https://github.com/jagadishwar-official/JD_OX-Login_Page
 - Node.js
 - Express.js
 - CORS
-- REST API
+- API
 
 ### Deployment
 - Vercel
